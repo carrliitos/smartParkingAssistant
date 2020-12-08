@@ -1,3 +1,7 @@
+/** @author Benzon Carlitos Salazar
+ * CS412 Final Arduino Project
+*/
+
 int redLED = 2;	// Red LED connected to pin 2
 int yellowLED = 3; // Yellow LED connected to pin 3
 int greenLED = 4; // Green LED connected to pin 4

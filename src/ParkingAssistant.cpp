@@ -6,9 +6,9 @@
 int redLED = 2;	// Red LED connected to pin 2
 int yellowLED = 3; // Yellow LED connected to pin 3
 int greenLED = 4; // Green LED connected to pin 4
-int trigPin = 5; // Sensor Trip pin connected to pin 5
+int trigPin = 5; // Sensor Trig pin connected to pin 5
 int echoPin = 6; // Sensor Echo pin connected to pin 6
-int buzzer = A0; // Buzzer connected to analog pin A0
+int buzzer = 10; // Buzzer connected to pin 10
 long TempDistance = 0; // Variable to store the temporary distance
 int count = 0; // count variable to check if the object has stopped moving
 
@@ -40,35 +40,37 @@ void loop() {
 	
 	/**
 	 * We start checking the values of each distance
-	 * if Distance > 200, nothing in the garage
+	 * if Distance > 200, nothing in the garage -- turn off everything
 	 * if 200 >= Distance > 55, Green LED turns on
 	 * if 55 >= Distance > 15, Yellow LED turns on -- Caution
 	 * if Distance <= 15, Red LED -- Warning
 	 * if Distance < 8, Buzzer and Red LED -- Car way too close, DANGER!
 	*/
-	if(Distance > 200) {
-		turnAllOff();
-	}
-	if((Distance > 55) && (Distance <= 200)) {
-		digitalWrite(redLED, LOW);
-		digitalWrite(yellowLED, LOW);
-		digitalWrite(greenLED, HIGH);
-		noTone(buzzer);
-	}
-	if((Distance > 15) && (Distance <= 55)) {
-		digitalWrite(redLED, LOW);
-		digitalWrite(yellowLED, HIGH);
-		digitalWrite(greenLED, LOW);
-		noTone(buzzer);
-	}
-	if(Distance <= 15) {
-		digitalWrite(redLED, HIGH);
-		digitalWrite(yellowLED, LOW);
-		digitalWrite(greenLED, LOW);
-		noTone(buzzer);
-	}
-	if(Distance < 8) {
-		tone(buzzer, 500);
+	if(count < 20) {
+		if(Distance > 200) {
+			turnAllOff();
+		}
+		if((Distance > 55) && (Distance <= 200)) {
+			digitalWrite(redLED, LOW);
+			digitalWrite(yellowLED, LOW);
+			digitalWrite(greenLED, HIGH);
+			analogWrite(buzzer, 0);
+		}
+		if((Distance > 15) && (Distance <= 55)) {
+			digitalWrite(redLED, LOW);
+			digitalWrite(yellowLED, HIGH);
+			digitalWrite(greenLED, LOW);
+			analogWrite(buzzer, 0);
+		}
+		if(Distance <= 15) {
+			digitalWrite(redLED, HIGH);
+			digitalWrite(yellowLED, LOW);
+			digitalWrite(greenLED, LOW);
+			analogWrite(buzzer, 0);
+		}
+		if(Distance < 8) {
+			analogWrite(buzzer, 500);
+		}
 	}
 	
 	/**
@@ -85,12 +87,19 @@ void loop() {
 			turnAllOff();
 		}else {
 			count++;
+			Serial.println(count);
 		}
 	}else {
 		count = 0;
 	}
 	TempDistance = Distance;
+	Serial.print(Distance);
+	Serial.println(" inches");
+	Serial.print("Count: ");
+	Serial.println(count);
+	delay(500);
 }
+
 // Function to turn off the LEDs and the buzzer
 void turnAllOff() {
 	digitalWrite(redLED, LOW);

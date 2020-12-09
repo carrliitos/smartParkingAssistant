@@ -1,7 +1,7 @@
 # Smart Parking Assistant Arduino Project
 > Benzon Carlitos Salazar
 
-This project is for my COMPUTER ORGANIZATION AND SYSTEM PROGRAMMING class in the 
+This project is for my Computer Organization and System Programming class in the 
 2020 fall term.
 
 ## About

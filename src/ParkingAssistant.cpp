@@ -1,4 +1,5 @@
-/** @author Benzon Carlitos Salazar
+/** 
+ * @author Benzon Carlitos Salazar
  * CS412 Final Arduino Project
 */
 

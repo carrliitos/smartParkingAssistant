@@ -24,13 +24,13 @@ respectively.
 
 ## Assembly
 ![assembly 1](src/imgs/assembly1.png)
-![assembly 2](src/imgs/assembly2.jpg)
+![assembly 2](src/imgs/assembly2.jpeg)
 
 ## Assembly Explanation
 Red, yellow, and green LEDs are connected to digital pins 2, 3, and 4, 
 respectively, with 220Ω resistors between it and the arduino. The trig pin of 
 the sensor is connected to digital pin 5, and the echo pin is connected to 
-digital pin 6. The buzzer is connected to analog pin A0 via an NPN transistor 
+digital pin 6. The buzzer is connected to digital pin 10 via an NPN transistor 
 with the 100Ω resistor. All the positive pins are connected to the 5V pin of the 
 arduino, and all the negative pins are connected to the ground pin of the arduino.
 

@@ -76,7 +76,7 @@ void loop() {
 	/**
 	 * Set the value of the count based on the car's movement
 	 * which will decide when to turn off the LEDs.
-	 * We compare the vlaues of "Distance" to "TempDistance", and
+	 * We compare the values of "Distance" to "TempDistance", and
 	 * if the values are the same (no movement), we increment count.
 	 * If the car moves, reset count to 0.
 	 * Finally, set "TempDistance" to value of "Distance"

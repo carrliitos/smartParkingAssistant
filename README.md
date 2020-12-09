@@ -36,9 +36,9 @@ arduino, and all the negative pins are connected to the ground pin of the arduin
 
 ## Code Explanation
 We start by defining our constants and the global variables which will be used 
-throughout the code. We then define each pin mode in the setup section, we then 
-create a function ```turnAllOff()```, which will be responsible for turning off all 
-the LEDs and the buzzer.
+throughout the code. We then define each pin mode in the ```setup()``` section, 
+we then create a function ```turnAllOff()```, which will be responsible for 
+turning off all the LEDs and the buzzer.
 
 Two things are happening inside the ```loop()```, first we want to calculate the 
 distance between the car and the sensor, in inches, by reading the values from 

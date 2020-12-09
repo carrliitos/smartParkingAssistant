@@ -37,21 +37,23 @@ arduino, and all the negative pins are connected to the ground pin of the arduin
 ## Code Explanation
 We start by defining our constants and the global variables which will be used 
 throughout the code. We then define each pin mode in the setup section, we then 
-create a function turnAllOff(), which will be responsible for turning off all 
+create a function ```turnAllOff()```, which will be responsible for turning off all 
 the LEDs and the buzzer.
-Two things are happening inside the loop(), first we want to calculate the d
-istance between the car and the sensor, in inches, by reading the values from 
+
+Two things are happening inside the ```loop()```, first we want to calculate the 
+distance between the car and the sensor, in inches, by reading the values from 
 the sensor. Then, we start checking the values of each distances; if the distance 
 is greater than 200 inches, there’s nothing in the garage, if the distance 
 between 200 inches and 55 inches, we turn on the green LED, if the distance is 
 between 55 and 15 inches, we turn on the yellow LED, if the distance is less 
 than or equal 15 inches, we turn on the red LED, and when the distance is less 
 than 8 inches, we turn on the buzzer along with red LED. 
+
 After that, we want to check to see if the car is still moving or not. And we 
-do this by setting a counter whose values are based on the car’s movement inside 
-the garage, this will in turn decide when to turn off the LEDs. It will compare 
-the value of “Distance” with a “TempDistance” and if the values are the same, 
+do this by setting a ```counter``` whose values are based on the car’s movement 
+inside the garage, this will in turn decide when to turn off the LEDs. It will compare 
+the value of ```Distance``` with a ```TempDistance``` and if the values are the same, 
 this indicates that the car has stopped moving, therefore we increment the 
-counter. If the car moves at any-time, we reset the counter to 0. Then finally, 
-we set the “TempDistance” equal to the value of “Distance”. We also set the 
-counter’s limit to 20 CPU cycles.
+```counter```. If the car moves at any-time, we reset the ```counter``` to 0. 
+Then finally, we set the ```TempDistance``` equal to the value of ```Distance```. 
+We also set the ```counter```’s limit to 20 CPU cycles.

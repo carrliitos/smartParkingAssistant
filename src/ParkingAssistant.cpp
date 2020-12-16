@@ -46,7 +46,7 @@ void loop() {
 	 * if Distance <= 15, Red LED -- Warning
 	 * if Distance < 8, Buzzer and Red LED -- Car way too close, DANGER!
 	*/
-	if(count < 20) {
+	if(count < 10) {
 		if(Distance > 200) {
 			turnAllOff();
 		}
@@ -82,7 +82,7 @@ void loop() {
 	 * Finally, set "TempDistance" to value of "Distance"
 	*/
 	if((Distance == TempDistance) || ((Distance + 1) == TempDistance) || ((Distance - 1) == TempDistance)) {
-		if(count >= 20) { // turn off after 20 cycles
+		if(count >= 10) { // turn off after 10 CPU cycles
 			Serial.println("No movement detected.");
 			turnAllOff();
 		}else {
@@ -105,5 +105,5 @@ void turnAllOff() {
 	digitalWrite(redLED, LOW);
 	digitalWrite(greenLED, LOW);
 	digitalWrite(yellowLED, LOW);
-	noTone(buzzer);
+	analogWrite(buzzer, 0);
 }

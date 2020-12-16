@@ -16,7 +16,6 @@ long TempDistance = 0; // Variable to store the temporary distance
 int count = 0; // count variable to check if the object has stopped moving
 
 void setup() {
-	Serial.begin(9600);
 	// Ultrasonic sensor
 	pinMode(trigPin, OUTPUT);
 	pinMode(echoPin, INPUT);
@@ -28,6 +27,8 @@ void setup() {
 
 	// Buzzer
 	pinMode(buzzer, OUTPUT);
+	
+	Serial.begin(9600);
 }
 
 void loop() {

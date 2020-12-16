@@ -6,9 +6,12 @@
 int redLED = 2;	// Red LED connected to pin 2
 int yellowLED = 3; // Yellow LED connected to pin 3
 int greenLED = 4; // Green LED connected to pin 4
+
 int trigPin = 5; // Sensor Trig pin connected to pin 5
 int echoPin = 6; // Sensor Echo pin connected to pin 6
+
 int buzzer = 10; // Buzzer connected to pin 10
+
 long TempDistance = 0; // Variable to store the temporary distance
 int count = 0; // count variable to check if the object has stopped moving
 
